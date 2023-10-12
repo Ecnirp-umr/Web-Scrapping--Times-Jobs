@@ -2,6 +2,10 @@ from bs4 import BeautifulSoup # module
 import requests
 import re
 
+unfimilar_skills = input(" Enter unfimilar_skills(enter one skill only): ")
+print("Flittering.....")
+
+
 html_text=requests.get("https://www.timesjobs.com/candidate/job-search.html?earchType=personalizedSearch&from=submit&txtKeywords=Python&txtLocation=&cboWorkExp1=0").text
                                          
                                                 # Load  the webpage content
@@ -43,13 +47,16 @@ for i in jobs:
         "inside h2 header and if we use .text, it will give nothing, only space"
         "value due to we will use something else funct."
         
+        
+        if unfimilar_skills not in skills:
+          print(f"Company Name : ",company_name.strip())
+          print(f"Skills : ",skills.strip())
+          print(link)
+  
+          print(" ")
 
-        print(f"Company Name : ",company_name.strip())
-        print(f"Skills : ",skills.strip())
-        print(link)
 
-        print(" ")
-
+print(find_jobs())
         
         
         
